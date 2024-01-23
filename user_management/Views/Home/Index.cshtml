@@ -1,8 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Авторизация";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header bg-black text-light">
+                    <h1 class="display-4 text-center">Welcome</h1>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Home" asp-action="Login" method="post">
+                        <div class="form-group">
+                            <label for="username">Логин или e-Mail:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Пароль:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-coral btn-block">Войти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

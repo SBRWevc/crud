@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using System.Diagnostics;
@@ -20,7 +21,25 @@ namespace user_management.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Login(string username, string password)
+        {
+            // Ваша логика проверки учетных данных пользователя
+            // Например, можно использовать ASP.NET Core Identity для аутентификации
+
+            // Пример простой проверки для целей демонстрации
+            if (username == "admin" && password == "admin")
+            {
+                // Успешная аутентификация
+                return RedirectToAction("HelloPage");
+            }
+
+            // Неудачная аутентификация
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public IActionResult HelloPage()
         {
             return View();
         }
