@@ -29,7 +29,7 @@ Make sure you have the following installed on your machine:
    ```
 2. **Navigate to the project directory:**
    ```bash
-   cd crud/user-management
+   cd crud/user_management
    ```
 3. **Run the application:**
    ```bash
