@@ -4,7 +4,7 @@ using System;
 
 namespace user_management.Models
 {
-    public class UserViewModel : IdentityUser<int>
+    public class UserViewModel : IdentityUser
     {
 
     }
