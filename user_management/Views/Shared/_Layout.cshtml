@@ -14,14 +14,6 @@
             margin: 0;
         }
 
-        .custom-div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
         .form-control:focus {
             border-color: coral !important;
             box-shadow: 0 1px 1px rgba(251, 195, 40, 0.075) inset, 0 0 8px coral !important;
@@ -34,15 +26,15 @@
     </style>
 </head>
 <body>
-    <div class="container custom-div">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CRUD SBRW - <a href="https://github.com/SBRWevc/crud">GitHub</a>
+        <div class="container text-center">
+            &copy; 2024 - CRUD SBRW - <a href="https://github.com/SBRWevc/crud" class="text-decoration-none">GitHub</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

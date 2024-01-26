@@ -1,16 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 using user_management.Models;
 
 namespace user_management.Context
 {
-    public class UserContext : DbContext
+    public class UserContext
     {
-        public DbSet<UserViewModel> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=users.db");
-        }
     }
 }
