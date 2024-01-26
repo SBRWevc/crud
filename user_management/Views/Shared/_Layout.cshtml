@@ -14,6 +14,10 @@
             margin: 0;
         }
 
+        header {
+            text-align: right;
+        }
+
         .form-control:focus {
             border-color: coral !important;
             box-shadow: 0 1px 1px rgba(251, 195, 40, 0.075) inset, 0 0 8px coral !important;
@@ -23,9 +27,46 @@
             border-color: transparent !important;
             box-shadow: none !important;
         }
+
+        .exit-btn {
+            border: 0px;
+            border-radius: 50%;
+            transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin: 0.5em;
+            padding: 0;
+        }
+
+            .exit-btn:hover {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                background: coral;
+                color: white;
+            }
+
+            .exit-btn img {
+                filter: invert(0%);
+                transition: filter 0.3s ease;
+                margin: 0.2em 0.2em 0.2em 0.2em;
+                vertical-align: unset;
+            }
+
+            .exit-btn:hover img {
+                filter: invert(100%);
+            }
     </style>
 </head>
 <body>
+    @if(!User.Identity.IsAuthenticated)
+    {
+        <header>
+            <a asp-controller="Account" asp-action="LogOut" asp-area="" class="btn exit-btn">
+                <img src="/img/logout.png" height="25" width="25"/>
+            </a>
+        </header>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
