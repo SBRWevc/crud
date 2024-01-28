@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Список пользователей";
 }
+
+<style>
+    h1 {
+        color: coral;
+    }
+
+    .table-btn {
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .table-btn:hover {
+            background-color: coral;
+            color: white;
+        }
+
+    .custom-back {
+        transition: color 0.3s ease;
+        padding: 0px;
+        height: 30px;
+    }
+
+        .custom-back:hover {
+            color: coral;
+        }
+</style>
+
+<div class="container mt-2">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Логин</th>
+                <th>e-Mail</th>
+                <th>Телефон</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var users in Model)
+            {
+                <tr class="table-btn" onclick="window.location.href='@Url.Action("OrderDetails", new { id = users.Id })'">
+                    <td>@users.Id</td>
+                    <td>@users.UserName</td>
+                    <td>@users.Email</td>
+                    <td>@users.PhoneNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

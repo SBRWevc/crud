@@ -14,7 +14,11 @@
             margin: 0;
         }
 
-        header {
+        label {
+            text-align: left;
+        }
+
+        form {
             text-align: right;
         }
 
@@ -32,7 +36,10 @@
 <body>
     @if(User.Identity.IsAuthenticated)
     {
-        <header>
+        <header>    
+            <label>
+                @ViewData["Title"]
+            </label>
             <form asp-controller="Account" asp-action="LogOut" method="post">
                 <button type="submit" class="btn rounded-3 custom-btn">Выйти</button>
             </form>
@@ -47,7 +54,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="container text-center">
-            &copy; 2024 - CRUD SBRW - <a href="https://github.com/SBRWevc/crud" class="text-decoration-none">GitHub</a>
+            <label>
+                &copy; 2024 - CRUD SBRW - <a href="https://github.com/SBRWevc/crud" class="text-decoration-none"> GitHub</a>
+            </label>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

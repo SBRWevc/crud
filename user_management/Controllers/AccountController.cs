@@ -38,8 +38,14 @@ namespace user_management.Controllers
 
                     if (result.Succeeded)
                     {
-                        _logger.LogInformation("User logged in.");
-                        return View("Login"); // Замените "Index" и "Home" на ваши значения
+                        _logger.LogInformation(username + " logged in.");
+
+                        if (User.IsInRole("Admin"))
+                        {
+                            return RedirectToAction("List", "Admin");
+                        }
+
+                        return View("Login");
                     }
                 }
 
@@ -54,12 +60,11 @@ namespace user_management.Controllers
         {
             await _signInManager.SignOutAsync();
 
-            // Опционально: Вы можете также выйти из всех внешних систем аутентификации (например, Google, Facebook)
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             _logger.LogInformation("User logged out.");
 
-            return RedirectToAction("Login"); // Замените "Index" и "Home" на ваши значения
+            return RedirectToAction("Login");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
