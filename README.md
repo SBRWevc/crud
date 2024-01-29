@@ -25,7 +25,7 @@ Make sure you have the following installed on your machine:
 ## Getting Started
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/aspnet-core-mvc-user-management.git
+   git clone https://github.com/SBRWevc/crud/user-management.git
    ```
 2. **Navigate to the project directory:**
    ```bash
